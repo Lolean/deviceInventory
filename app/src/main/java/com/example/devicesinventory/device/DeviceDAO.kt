@@ -1,4 +1,4 @@
-package com.example.devicesinventory.data
+package com.example.devicesinventory.device
 
 import androidx.room.*
 

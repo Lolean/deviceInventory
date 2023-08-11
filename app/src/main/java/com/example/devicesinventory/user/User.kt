@@ -1,14 +1,16 @@
-package com.example.devicesinventory.data
+package com.example.devicesinventory.user
 
 import androidx.room.*
+import com.example.devicesinventory.data.FieldConstraint
 
 @Entity(tableName = "UserTable")
 data class User(
-    @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
     @ColumnInfo(name = "email") var email: String,
     @ColumnInfo(name = "username") var username: String,
     @ColumnInfo(name="password") var password: String,
-    @ColumnInfo(name="credential") var credential : FieldConstraint.credential)
+    @ColumnInfo(name="credential") var credential : FieldConstraint.credential
+)
 {
 
 

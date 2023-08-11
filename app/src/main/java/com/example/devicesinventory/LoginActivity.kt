@@ -5,11 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.devicesinventory.data.Database
+import com.example.devicesinventory.data.DatabaseOperator
 import com.example.devicesinventory.databinding.ActivityLoginBinding
 import com.example.devicesinventory.databinding.LoginFormfragmentBinding
 import com.example.devicesinventory.databinding.LoginHomefragmentBinding
 import com.example.devicesinventory.fragment.FormFragment
 import com.example.devicesinventory.fragment.HomeFragment
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class LoginActivity: AppCompatActivity() {
@@ -24,13 +30,13 @@ class LoginActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        DatabaseOperator.startDatabase(applicationContext)
         bindingActivity = ActivityLoginBinding.inflate(layoutInflater)
 
         bindingHome = LoginHomefragmentBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_login)
         setFragment(homeFragment,true)
         bindingForm = LoginFormfragmentBinding.inflate(layoutInflater)
-
 
     }
 
@@ -49,6 +55,20 @@ class LoginActivity: AppCompatActivity() {
             }
             bindingForm.loginfrgBtToRegister.id -> formFragment.toSignup()
             bindingForm.loginfrgBtToLogin.id -> formFragment.toLogin()
+            bindingForm.loginfrgBtSubmit.id -> {
+
+
+                if(bindingForm.loginfrgBtSubmit.text.toString()=="Login"){
+                    CoroutineScope(Dispatchers.IO).launch{
+                        formFragment.login()
+                    }
+                }
+                else{
+
+                }
+
+
+            }
         }
 
     }
@@ -58,7 +78,9 @@ class LoginActivity: AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().apply {
             replace(bindingActivity.loginFlfragment.id, frg)
+            if(backstack) addToBackStack(null)
             commit()
+
         }
 
     }
