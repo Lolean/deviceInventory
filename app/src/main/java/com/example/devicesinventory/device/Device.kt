@@ -9,8 +9,10 @@ data class Device(
     @ColumnInfo(name="type") var type: FieldConstraint.type,
     @ColumnInfo(name = "brand") var brand : String,
     @ColumnInfo(name = "website") var website : String,
-    @ColumnInfo(name = "device_name") var name : String,
-    @ColumnInfo(name= "state") var state : FieldConstraint.state
+    @ColumnInfo(name = "model") var model : String,
+    @ColumnInfo(name= "state") var state : FieldConstraint.state,
+    @ColumnInfo(name="username") var username : String = "",
+
 )
 {
 

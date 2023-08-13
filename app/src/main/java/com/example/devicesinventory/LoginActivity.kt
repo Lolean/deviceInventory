@@ -15,6 +15,7 @@ import com.example.devicesinventory.fragment.HomeFragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 
@@ -32,57 +33,32 @@ class LoginActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         DatabaseOperator.startDatabase(applicationContext)
         bindingActivity = ActivityLoginBinding.inflate(layoutInflater)
-
         bindingHome = LoginHomefragmentBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_login)
         setFragment(homeFragment,true)
         bindingForm = LoginFormfragmentBinding.inflate(layoutInflater)
-
     }
 
-    // Button array
+    // Button switch
     fun press(v: View){
         when(v.id){
-            bindingHome.loginfrgBtLogin.id -> {
-
-                setFragment(formFragment,true)
-
-            }
-            bindingHome.loginfrgBtSignup.id -> {
-
-                setFragment(formFragment, true)
-
-            }
+            bindingHome.loginfrgBtLogin.id -> setFragment(formFragment,true)
+            bindingHome.loginfrgBtSignup.id -> setFragment(formFragment, true)
             bindingForm.loginfrgBtToRegister.id -> formFragment.toSignup()
             bindingForm.loginfrgBtToLogin.id -> formFragment.toLogin()
-            bindingForm.loginfrgBtSubmit.id -> {
-
-
-                if(bindingForm.loginfrgBtSubmit.text.toString()=="Login"){
-                    CoroutineScope(Dispatchers.IO).launch{
-                        formFragment.login()
-                    }
-                }
-                else{
-
-                }
-
-
-            }
+            bindingForm.boutonlogin.id -> formFragment.login()
+            bindingForm.boutonsignup.id -> formFragment.register()
         }
-
     }
 
-    // switch fragment function
+    // fragment loading function
     private fun setFragment(frg: Fragment, backstack: Boolean){
 
         supportFragmentManager.beginTransaction().apply {
             replace(bindingActivity.loginFlfragment.id, frg)
             if(backstack) addToBackStack(null)
             commit()
-
         }
-
     }
 
 

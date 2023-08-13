@@ -22,11 +22,8 @@ class DatabaseOperator {
                     Database::class.java,
                     "DeviceInventoryDB").allowMainThreadQueries().build()
                 defaultDataSetter()
-
             }
-
         }
-
 
         fun defaultDataSetter(){
 
