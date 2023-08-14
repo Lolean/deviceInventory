@@ -32,7 +32,7 @@ class DatabaseOperator {
                 db.userDAO().add(User(0,"basic@device.com","basic","basic",FieldConstraint.credential.BASIC))
                 db.deviceDAO().add(Device("10001/01",FieldConstraint.type.TABLET,"LG","www.LG.com","Gram+view",FieldConstraint.state.AVAILABLE))
                 db.deviceDAO().add(Device("20001/01",FieldConstraint.type.PHONE,"Google","www.store.google.com","Pixel 5",FieldConstraint.state.AVAILABLE))
-                db.deviceDAO().add(Device("20001/02",FieldConstraint.type.PHONE,"Google","www.store.google.com","Pixel 5",FieldConstraint.state.TAKEN))
+                db.deviceDAO().add(Device("20001/02",FieldConstraint.type.PHONE,"Google","www.store.google.com","Pixel 5",FieldConstraint.state.TAKEN,"Fabrice Scopel"))
             }
 
         }

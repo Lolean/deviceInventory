@@ -1,6 +1,7 @@
 package com.example.devicesinventory.device
 
 import android.app.Activity
+import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -22,6 +23,7 @@ class DeviceAdapter constructor(devices : List<AdaptedDevice>,activity : Activit
 
 
 
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeviceViewHolder {
             val view = activity.layoutInflater.inflate(R.layout.device_entry, parent, false)
             return DeviceViewHolder(view)
@@ -38,11 +40,14 @@ class DeviceAdapter constructor(devices : List<AdaptedDevice>,activity : Activit
             holder.deviceBrand.text = deviceList[position].brand
             holder.deviceWebsite.text = deviceList[position].website
             holder.deviceSerial.text = deviceList[position].serial
-            holder.deviceState.text = deviceList[position].state
+            holder.deviceState.text = deviceList[position].state.toString()
             holder.deviceUsername.text = deviceList[position].username
             holder.deviceModel.text = deviceList[position].model
 
-            holder.itemView.setOnClickListener {}
+            holder.itemView.setOnClickListener {
+                activity.chosenDevice = deviceList[position].serial
+                activity.setFragment(activity.deviceShowFragment, true)
+            }
 
         }
 
@@ -50,7 +55,7 @@ class DeviceAdapter constructor(devices : List<AdaptedDevice>,activity : Activit
             return deviceList.size
         }
 
-        class DeviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        inner class DeviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val deviceType : ImageView = itemView.findViewById(R.id.deviceEntry_type)
             val deviceBrand : TextView = itemView.findViewById(R.id.deviceEntry_brand)
             val deviceWebsite : TextView = itemView.findViewById(R.id.deviceEntry_website)
@@ -58,6 +63,8 @@ class DeviceAdapter constructor(devices : List<AdaptedDevice>,activity : Activit
             val deviceState : TextView = itemView.findViewById(R.id.deviceEntry_state)
             val deviceUsername : TextView = itemView.findViewById(R.id.deviceEntry_username)
             val deviceModel : TextView = itemView.findViewById(R.id.deviceEntry_model)
+
+
 
         }
 }

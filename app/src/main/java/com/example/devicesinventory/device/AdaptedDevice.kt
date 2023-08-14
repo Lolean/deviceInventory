@@ -9,7 +9,7 @@ class AdaptedDevice(device : Device): java.io.Serializable{
     var brand : String = device.brand
     var website : String = device.website
     var model : String = device.model
-    var state : String = device.state.toString()
+    var state : FieldConstraint.state = device.state
     var username : String = device.username
 
 }
