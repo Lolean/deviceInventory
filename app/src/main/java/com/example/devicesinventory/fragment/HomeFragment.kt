@@ -14,6 +14,7 @@ import com.example.devicesinventory.R
  */
 class HomeFragment : Fragment(R.layout.login_homefragment) {
 
+    //First fragment displayed when the app is launched
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

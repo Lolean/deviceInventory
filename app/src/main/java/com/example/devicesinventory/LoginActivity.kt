@@ -27,7 +27,7 @@ class LoginActivity: AppCompatActivity() {
     private lateinit var bindingHome : LoginHomefragmentBinding
     private lateinit var bindingActivity : ActivityLoginBinding
 
-
+    //usual view biding and layout inflate
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

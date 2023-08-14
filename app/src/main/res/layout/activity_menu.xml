@@ -8,16 +8,47 @@
 <androidx.appcompat.widget.Toolbar
     android:id="@+id/main_navbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="40dp"
     android:orientation="horizontal"
-    android:background="@color/teal_200">
+    android:background="@color/blueblack">
 
-    <Button
-        android:id="@+id/main_bt_topLeft"
+    <ImageButton
+        android:id="@+id/main_bt_back"
+        android:src="@drawable/back"
+        android:scaleType="fitCenter"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/roundedbutton"
+        android:visibility="gone"
+    />
+    <TextView
+        android:id="@+id/main_tv_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/teal_700"
-        />
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+    />
+    <ImageButton
+        android:id="@+id/main_bt_menu"
+        android:src="@drawable/menu"
+        android:scaleType="fitCenter"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/roundedbutton"
+        android:layout_gravity="right"
+        android:layout_marginRight="5dp"
+        android:visibility="gone"
+    />
+    <ImageButton
+        android:id="@+id/main_bt_add"
+        android:src="@drawable/add"
+        android:scaleType="fitCenter"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/roundedbutton"
+        android:layout_gravity="right"
+        android:layout_marginRight="5dp"
+        android:visibility="gone"
+    />
 
 </androidx.appcompat.widget.Toolbar>
 

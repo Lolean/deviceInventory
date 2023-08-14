@@ -32,13 +32,17 @@ class FormFragment : Fragment(R.layout.login_formfragment) {
     private lateinit var currentView: View
     private lateinit var activity: Activity
 
+    //view binding and current activity retrieval
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = LoginFormfragmentBinding.bind(view)
         currentView = view
         activity = requireActivity() as LoginActivity
     }
-    // UI functions
+
+    //----------------- UI functions -----------------
+
+    //set login form
     fun toLogin(){
         requireActivity().runOnUiThread{
             binding.loginfrgTvLogin.visibility = View.VISIBLE
@@ -53,6 +57,7 @@ class FormFragment : Fragment(R.layout.login_formfragment) {
 
     }
 
+    //set signup form
     fun toSignup(){
         requireActivity().runOnUiThread {
             binding.loginfrgTvLogin.visibility=View.GONE
@@ -67,7 +72,9 @@ class FormFragment : Fragment(R.layout.login_formfragment) {
 
     }
 
-    // Backend functions
+    //----------------- Backend functions -----------------
+
+    //retrieve user data from form and check if user exist
     fun login(){
         CoroutineScope(Dispatchers.IO).launch() {
             var password: String = binding.loginfrgEtPassword.text.toString()
@@ -86,6 +93,7 @@ class FormFragment : Fragment(R.layout.login_formfragment) {
         }
     }
 
+    //register user if not already exist
     fun register(){
         CoroutineScope(Dispatchers.IO).launch() {
             var checkData: User? = DatabaseOperator.db.userDAO().get(binding.loginfrgEtEmail.text.toString())
@@ -111,6 +119,7 @@ class FormFragment : Fragment(R.layout.login_formfragment) {
         }
     }
 
+    // start next activity with user data
     fun logged(user: User){
         val intent =  Intent(activity,MainActivity::class.java)
         intent.putExtra("loggedUser",AdaptedUser(user))

@@ -19,13 +19,12 @@ class MainMenuFragment : Fragment(R.layout.main_menufragment) {
     lateinit var binding: MainMenufragmentBinding
     lateinit var activity: MainActivity
 
-
+    //main menu view with view binding and username displayed
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = MainMenufragmentBinding.bind(view)
         activity = requireActivity() as MainActivity
         binding.menuTvWelcome.text = "Welcome ${activity.user.username} !"
         }
-
 
 }

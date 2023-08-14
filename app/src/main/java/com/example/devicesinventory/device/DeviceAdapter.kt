@@ -46,7 +46,7 @@ class DeviceAdapter constructor(devices : List<AdaptedDevice>,activity : Activit
 
             holder.itemView.setOnClickListener {
                 activity.chosenDevice = deviceList[position].serial
-                activity.setFragment(activity.deviceShowFragment, true)
+                activity.setFragment(activity.deviceShowFragment, true,"${deviceList[position].serial}")
             }
 
         }

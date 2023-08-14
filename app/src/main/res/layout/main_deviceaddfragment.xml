@@ -5,7 +5,8 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/devicead_iv_type"
+        android:id="@+id/deviceadd_iv_type"
+        android:background="@drawable/roundedbutton"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="70dp"
         android:layout_width="200dp"
@@ -57,26 +58,45 @@
         android:textAlignment="center"
 
         />
-    <Spinner
-        android:id="@+id/deviceshow_tv_state"
-        android:layout_width="250dp"
+    <RadioGroup
+        android:id="@+id/deviceadd_rg_state"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:text="state"
-        android:textSize="40dp"
+        android:textSize="40dp">
+
+    <RadioButton
+            android:id="@+id/deviceadd_rb_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHONE"
+            android:textSize="30dp"
+            android:checked="true"
+            />
+    <RadioButton
+            android:id="@+id/deviceadd_rb_tablet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TABLET"
+            android:textSize="30dp"
+            android:checked="false"
+            />
+
+    </RadioGroup>
 
 
-        />
 
     <Button
-        android:id="@+id/deviceshow_bt_modify"
+        android:id="@+id/deviceadd_bt_add"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:text="modify"
-        android:visibility="gone"
+        android:text="add"
+        android:visibility="visible"
         />
 
 
