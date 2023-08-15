@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    //set fragment and remove all fragments in backstack pile
     fun setFragment(frg: Fragment, backstack: Boolean,tag : String?,pop: Boolean){
         setToolbar(frg)
 
@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
         else return false
     }
 
+    //set toolbar button depending on loaded fragment
     fun setToolbar(frg : Fragment){
             when (frg) {
                is DeviceShowFragment -> {

@@ -36,6 +36,7 @@ class UserAdapter constructor(users : MutableList<AdaptedUser>, activity : Activ
             holder.username.text = userList[position].username
             holder.credential.text = userList[position].credential.toString()
 
+            //setup buttons depending on user credential
             if(activity.user.credential == FieldConstraint.credential.ADMIN){
 
                 if(holder.credential.text == FieldConstraint.credential.MODERATOR.toString()){
@@ -62,6 +63,7 @@ class UserAdapter constructor(users : MutableList<AdaptedUser>, activity : Activ
                 holder.rankup.visibility = View.GONE
             }
 
+            //button methods
             holder.delete.setOnClickListener{
                 var userToDelete : User = DatabaseOperator.db.userDAO().get(userList[position].email)
                 DatabaseOperator.db.userDAO().delete(userToDelete)

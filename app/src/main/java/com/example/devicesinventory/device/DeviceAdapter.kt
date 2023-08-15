@@ -67,4 +67,4 @@ class DeviceAdapter constructor(devices : List<AdaptedDevice>,activity : Activit
 
 
         }
-}
+    }

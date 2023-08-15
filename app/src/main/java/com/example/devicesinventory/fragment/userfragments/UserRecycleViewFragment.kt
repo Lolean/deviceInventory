@@ -56,7 +56,7 @@ class UserRecycleViewFragment : Fragment(R.layout.main_userrecyclerviewfragment)
         }
     }
 
-    //retrieve device list from database and convert it to a list of AdaptedDevice used by recycler view
+    //retrieve device list from database and convert it to a list of UµserDevice used by recycler view
     fun setupDeviceList() {
         var dbUserList : List<User> = DatabaseOperator.db.userDAO().get()
         userList = mutableListOf()

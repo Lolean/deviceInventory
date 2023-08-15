@@ -35,7 +35,7 @@ class LoginActivity: AppCompatActivity() {
         bindingActivity = ActivityLoginBinding.inflate(layoutInflater)
         bindingHome = LoginHomefragmentBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_login)
-        setFragment(homeFragment,true)
+        setFragment(formFragment,true)
         bindingForm = LoginFormfragmentBinding.inflate(layoutInflater)
     }
 

@@ -32,11 +32,12 @@ class DeviceRecycleViewFragment : Fragment(R.layout.main_devicerecyclerviewfragm
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.device_recyclerview)
         CoroutineScope(Dispatchers.IO).launch(){
+
             setupDeviceList()
             activity = requireActivity() as MainActivity
             deviceAdapter = DeviceAdapter(deviceList,activity)
             recyclerView.adapter = deviceAdapter
-            recyclerView.layoutManager = LinearLayoutManager(activity)
+            requireActivity().runOnUiThread(){recyclerView.layoutManager = LinearLayoutManager(activity)}
         }
 
     }
@@ -49,7 +50,4 @@ class DeviceRecycleViewFragment : Fragment(R.layout.main_devicerecyclerviewfragm
             deviceList += AdaptedDevice(device)
         }
     }
-
-
-
 }
