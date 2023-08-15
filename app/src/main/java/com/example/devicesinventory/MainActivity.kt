@@ -11,13 +11,12 @@ import androidx.fragment.app.FragmentManager
 import com.example.devicesinventory.data.FieldConstraint
 import com.example.devicesinventory.databinding.ActivityMenuBinding
 import com.example.devicesinventory.databinding.MainMenufragmentBinding
-import com.example.devicesinventory.device.AdaptedDevice
-import com.example.devicesinventory.fragment.DeviceAddFragment
-import com.example.devicesinventory.fragment.DeviceRecycleViewFragment
-import com.example.devicesinventory.fragment.DeviceShowFragment
+import com.example.devicesinventory.fragment.devicefragments.DeviceAddFragment
+import com.example.devicesinventory.fragment.devicefragments.DeviceRecycleViewFragment
+import com.example.devicesinventory.fragment.devicefragments.DeviceShowFragment
 import com.example.devicesinventory.fragment.MainMenuFragment
+import com.example.devicesinventory.fragment.userfragments.UserRecycleViewFragment
 import com.example.devicesinventory.user.AdaptedUser
-import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     var deviceAddFragment = DeviceAddFragment()
     var menuFragment = MainMenuFragment()
     private var deviceList = DeviceRecycleViewFragment()
+    private var userList = UserRecycleViewFragment()
     lateinit var user : AdaptedUser
     var chosenDevice : String? = null
     var fragmentManager : FragmentManager = supportFragmentManager
@@ -39,13 +39,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
         setFragment(menuFragment,false,"mainmenu")
         user = intent.getSerializableExtra("loggedUser") as AdaptedUser
+
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        setToolbar(fragmentManager.findFragmentById(R.id.main_flFragment)!!)
     }
 
     //main menu button for device or user section
     fun menuPress(view: View){
         when(view.id){
             bindingMenu.menuBtDevices.id -> setFragment(deviceList,true,"deviceList")
-            bindingMenu.menuBtUsers.id -> {}
+            bindingMenu.menuBtUsers.id -> setFragment(userList,true,"userList")
         }
     }
 
@@ -58,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
+
 
     fun setFragment(frg: Fragment, backstack: Boolean,tag : String?,pop: Boolean){
         setToolbar(frg)

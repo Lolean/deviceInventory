@@ -25,6 +25,8 @@ class MainMenuFragment : Fragment(R.layout.main_menufragment) {
         binding = MainMenufragmentBinding.bind(view)
         activity = requireActivity() as MainActivity
         binding.menuTvWelcome.text = "Welcome ${activity.user.username} !"
+        if(activity.isAllowed()) binding.menuBtUsers.visibility = View.VISIBLE
         }
 
-}
+
+    }

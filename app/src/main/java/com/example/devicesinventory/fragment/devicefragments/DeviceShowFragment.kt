@@ -1,13 +1,8 @@
-package com.example.devicesinventory.fragment
+package com.example.devicesinventory.fragment.devicefragments
 
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.annotation.RequiresApi
 import com.example.devicesinventory.MainActivity
 import com.example.devicesinventory.R
 import com.example.devicesinventory.data.DatabaseOperator
@@ -19,8 +14,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 /**
  * A simple [Fragment] subclass.

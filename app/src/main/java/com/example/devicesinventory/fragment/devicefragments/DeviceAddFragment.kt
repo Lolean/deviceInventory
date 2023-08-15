@@ -1,16 +1,13 @@
-package com.example.devicesinventory.fragment
+package com.example.devicesinventory.fragment.devicefragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.devicesinventory.MainActivity
 import com.example.devicesinventory.R
 import com.example.devicesinventory.data.DatabaseOperator
 import com.example.devicesinventory.data.FieldConstraint
 import com.example.devicesinventory.databinding.MainDeviceaddfragmentBinding
-import com.example.devicesinventory.device.AdaptedDevice
 import com.example.devicesinventory.device.Device
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
